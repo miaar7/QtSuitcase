@@ -14,11 +14,9 @@ Rectangle {
 
     Label {
         id: label
-        x: 8
-        y: 18
-        text: qsTr("Label")
-        renderType: Text.QtRendering
-        font.pointSize: 14
+        x: 23
+        y: 24
+        text: ""
     }
 
     Rectangle {
@@ -31,4 +29,6 @@ Rectangle {
         clip: false
         rotation: 45
     }
+
+
 }
