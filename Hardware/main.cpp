@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <string>
 #include "GPIO.h"
+#include "PWM.h"
 #include "BOX.h"
 
 using namespace std;
