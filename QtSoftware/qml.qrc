@@ -10,5 +10,7 @@
         <file>Trend.qml</file>
         <file>TrendForm.ui.qml</file>
         <file>qtquickcontrols2.conf</file>
+        <file>Man.qml</file>
+        <file>ManForm.ui.qml</file>
     </qresource>
 </RCC>

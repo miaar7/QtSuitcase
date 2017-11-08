@@ -7,6 +7,7 @@ PageBackground {
     property alias pBarSP: pBarSP
     property alias pBarPV: pBarPV
     property alias pvValue : pvValue.text
+    property alias dial: dial
 
     Dial {
         id: dial

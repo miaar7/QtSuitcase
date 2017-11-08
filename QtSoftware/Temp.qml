@@ -6,5 +6,11 @@ TempForm {
             tempFormLabel: pBarSP.value.toFixed(1) + " °C"
             pvValue: pBarPV.value.toFixed(1) + " °C"
 
+            dial
+            {
+                onValueChanged:{backend.setSetpoint(dial.value)}
+
+            }
+
 
 }

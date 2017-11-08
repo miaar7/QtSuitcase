@@ -2,21 +2,44 @@
 
 
 
-explicit Backend(){
+Backend::Backend()
+    {
 
 
+
+    }
+
+
+
+
+void Backend::setSetpoint(double d)
+{
+    qDebug() << "SetSetPoint " << d;
 }
 
-void Backend::setSetpoint(double){}
+void Backend::setFan(float n)
+{
+    qDebug() << "SetFan " << n;
+}
 
-void Backend::setFan(int){}
+void Backend::setLamp1(bool b)
+{
+    qDebug() << "SetLamp1 " << b;
+}
 
-void Backend::setLamp1(char){}
+void Backend::setLamp2(bool b)
+{
+    qDebug() << "SetLamp2 " << b;
+}
 
-void Backend::setLamp2(char){}
+void Backend::setLamp3(bool b)
+{
+    qDebug() << "SetLamp3 " << b;
+}
 
-void Backend::setLamp3(char){}
-
-void Backend::setMode(char){}
+void Backend::setMode(bool b)
+{
+    qDebug() << "SetMode " << b;
+}
 
 

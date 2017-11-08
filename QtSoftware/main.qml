@@ -27,7 +27,7 @@ ApplicationWindow {
         Trend {
 
         }
-        Temp {
+        Man {
 
         }
 
@@ -50,7 +50,7 @@ ApplicationWindow {
         }
         TabButton {
             height: 40
-            text: qsTr("Tests")
+            text: qsTr("Manual")
         }
     }
 
