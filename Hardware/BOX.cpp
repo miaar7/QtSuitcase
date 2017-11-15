@@ -5,6 +5,8 @@
 #include "GPIO.h"
 #include "PWM.h"
 #include "BOX.h"
+#include "TMP100.h"
+
 using namespace std;
 
  BOX::BOX() {
@@ -12,6 +14,7 @@ using namespace std;
   lamp_2 = new GPIO("14");
   lamp_3 = new GPIO("15");
   fan = new PWM();
+  sensor = new TMP100();
   
   //Initialize the box
   lamp_1->reset();
@@ -46,4 +49,14 @@ void BOX::set_fan_speed(string speed)
 void BOX::stop_fan(void)
 {
   this->fan->stop();
+}
+
+float BOX::get_temp(void)
+{
+  this->sensor->read_temp();
+}
+
+void initialize_tmp100(void)
+{
+  this->sensor->initialize();
 }

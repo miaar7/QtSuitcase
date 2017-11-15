@@ -1,11 +1,13 @@
 #ifndef BOX_H 
 #define BOX_H
+
 #include<iostream>
 #include<fstream>
 #include<unistd.h>
 #include<string>
 #include "GPIO.h"
 #include "PWM.h"
+#include "TMP100.h"
 using namespace std;
 
  class BOX {
@@ -19,11 +21,14 @@ using namespace std;
   void reset_lamp3(void);
   void set_fan_speed(string speed);
   void stop_fan(void);
+  void initialize_tmp100(void);
+  float get_temp(void);
+  
  private:
   GPIO* lamp_1;
   GPIO* lamp_2;
   GPIO* lamp_3;
   PWM* fan;
-//  GPIO* rasp; // For home testing on RPi
+  TMP100* sensor;
 };
 #endif //BOX_H
