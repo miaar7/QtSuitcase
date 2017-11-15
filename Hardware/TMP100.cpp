@@ -4,6 +4,7 @@
 #include <sys/ioctl.h>
 #include <fcntl.h>
 #include "TMP100.h"
+#include <iostream>
 
 using namespace std;
 

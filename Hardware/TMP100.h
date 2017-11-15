@@ -6,7 +6,7 @@
 #include <linux/i2c-dev.h>
 #include <sys/ioctl.h>
 #include <fcntl.h>
-
+#include <iostream>
 using namespace std;
 
 class TMP100
