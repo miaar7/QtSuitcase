@@ -56,7 +56,7 @@ float BOX::get_temp(void)
   this->sensor->read_temp();
 }
 
-void initialize_tmp100(void)
+void BOX::initialize_tmp100(void)
 {
   this->sensor->initialize();
 }
