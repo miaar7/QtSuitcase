@@ -3,6 +3,24 @@ import QtQuick.Controls 2.0
 
 ManForm {
 
+    Connections {
+        target:sideBar
+        onModeChanged: {
+            swLamp1.enabled = mode
+            swLamp2.enabled = mode
+            swLamp3.enabled = mode
+            fanSlider.enabled = mode
+        }
+    }
+
+    Connections {
+        target:applicationWindow
+
+        onTempChange: {
+        pBarPV.value = temp
+        }
+     }
+
     pvValue {
         text: pBarPV.value.toFixed(1) + " °C"
     }
@@ -13,7 +31,9 @@ ManForm {
 
     swLamp1
     {
-        onPressed: backend.setLamp1(!swLamp1.checked)
+        onPressed:
+        { backend.setLamp1(!swLamp1.checked)
+        }
     }
 
     swLamp2

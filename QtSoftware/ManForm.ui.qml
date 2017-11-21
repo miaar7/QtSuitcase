@@ -61,6 +61,7 @@ PageBackground {
         y: 46
         width: 130
         text: qsTr("Lamp 1")
+        enabled: true
         padding: 0
         topPadding: 0
     }

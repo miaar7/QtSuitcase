@@ -1,6 +1,7 @@
 #include "backend.h"
+#include "BOX.h"
 
-
+BOX box;
 
 Backend::Backend()
     {
@@ -39,7 +40,10 @@ void Backend::setLamp3(bool b)
 
 void Backend::setMode(bool b)
 {
+    emit currentTemperature(40);
     qDebug() << "SetMode " << b;
 }
+
+
 
 

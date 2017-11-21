@@ -22,7 +22,7 @@ public:
     Q_INVOKABLE void setMode(bool);
 
 signals:
-    void currentTemperature(QVariant);
+    void currentTemperature(QVariant value);
 
 
 // public slots:

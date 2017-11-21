@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.4.0, 2017-11-01T08:33:16. -->
+<!-- Written by QtCreator 4.4.0, 2017-11-08T09:40:17. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -257,7 +257,7 @@
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.1">
       <valuelist type="QVariantList" key="Boot2Qt.PushToDeviceStep.DeploymentTimes">
        <valuemap type="QVariantMap">
-        <value type="QDateTime" key="Boot2Qt.PushToDeviceStep.DateTime">2017-10-25T15:28:49</value>
+        <value type="QDateTime" key="Boot2Qt.PushToDeviceStep.DateTime">2017-11-08T09:39:47</value>
         <value type="QByteArray" key="Boot2Qt.PushToDeviceStep.DeviceId">Boot2Qt.HwDevice:b2qt-beaglebone-78a504fdd7a0</value>
         <value type="bool" key="Boot2Qt.PushToDeviceStep.IsExecutable">true</value>
         <value type="QString" key="Boot2Qt.PushToDeviceStep.LocalFilePath">/home/ubuntu/build-Suitcase-Boot2Qt_5_8_0_BeagleBone_Black-Debug/Suitcase</value>
@@ -332,7 +332,7 @@
      <value type="int">14</value>
     </valuelist>
     <valuelist type="QVariantList" key="CommandLineArgs"/>
-    <value type="int" key="PE.EnvironmentAspect.Base">-1</value>
+    <value type="int" key="PE.EnvironmentAspect.Base">1</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Run 'Suitcase' on Boot2Qt Device</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>

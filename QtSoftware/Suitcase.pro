@@ -1,4 +1,4 @@
-QT += quick quickcontrols2
+QT += quick quickcontrols2 widgets
 CONFIG += c++11
 
 # The following define makes your compiler emit warnings if you use
@@ -13,7 +13,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += main.cpp \
-    backend.cpp
+    backend.cpp \
+    BOX.cpp \
+    GPIO.cpp \
+    PWM.cpp \
+    TMP100.c
 
 RESOURCES += qml.qrc
 
@@ -29,4 +33,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    backend.h
+    backend.h \
+    BOX.h \
+    GPIO.h \
+    PWM.h
