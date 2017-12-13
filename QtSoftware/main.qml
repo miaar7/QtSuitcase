@@ -11,7 +11,7 @@ ApplicationWindow {
     title: qsTr("SmartSuitcase")
     //Material.theme: Material.Dark
     //Material.accent: Material.color(Material.Blue)
-    signal tempChange(int temp)
+    signal tempChange(real temp)
 
     function temperatureChange(value)
         {

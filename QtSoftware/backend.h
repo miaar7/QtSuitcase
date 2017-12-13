@@ -2,15 +2,24 @@
 #define BACKEND_H
 
 #include <QObject>
+#include <QTimer>
 #include <QString>
 #include <QDebug>
+#include "BOX.h"
+
+/*
+extern "C" {
+
+#include "TMP100.h"
+}
+*/
+
 
 
 class Backend : public QObject
 {
-        Q_OBJECT
+     Q_OBJECT
 public:
-
 
 
     explicit Backend();
@@ -24,8 +33,13 @@ public:
 signals:
     void currentTemperature(QVariant value);
 
+public slots:
+    void Tmp100Slot(float);
 
-// public slots:
+private:
+    QTimer *timer;
+    BOX *box;
+
 };
 
 #endif // BACKEND_H

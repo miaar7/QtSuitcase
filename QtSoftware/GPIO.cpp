@@ -42,11 +42,11 @@ GPIO::GPIO(string pin_num, string dir)
 	direction.close();
 }
 
-void GPIO::set(void) 
+void GPIO::set(void)
 {
 	string out_folder = "/sys/class/gpio/gpio" + this->_pin_number + "/value";
 	out_value.open(out_folder.c_str());
-	out_value << '1' << flush;
+    out_value << '1' << flush;
 	out_value.close();
 }
 

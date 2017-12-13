@@ -7,22 +7,25 @@
 #include <string>
 
 using namespace std;
+const string SLOT_PATH = "/sys/devices/bone_capemgr.8/slots/";
+const string PWM_PATH = "/sys/devices/ocp.2/pwm_test_P8_19.14";
 
-const string SLOT_PATH = "/sys/devices/bone_capemgr.9/slots/";
-const string PWM_PATH = "/sys/devices/ocp.3/pwm_test_P9_22.15";
+// const string SLOT_PATH = "/sys/devices/bone_capemgr.9/slots/";
+// const string PWM_PATH = "/sys/devices/ocp.3/pwm_test_P9_22.15";
+// const string PWM_PATH = "/sys/devices/ocp.3/pwm_test_P9_22.10";
 
 class PWM
 {
 public:
 	PWM();
-	void set_speed(string speed);
+    void set_speed(string speed);
 //	string get_speed(void);
 	void stop(void);
 
 private:
 	string _speed;
-	string _pin_number;
-	ofstream SLOTH_WRITE;
+    string _pin_number;
+    ofstream SLOT_WRITE;
 	ofstream duty;
 	ofstream polarity;
 	ofstream period;

@@ -17,6 +17,7 @@ ManForm {
         target:applicationWindow
 
         onTempChange: {
+        console.log("Temp update:" + temp.toString())
         pBarPV.value = temp
         }
      }

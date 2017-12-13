@@ -4,6 +4,7 @@
 #include <QQmlContext>
 #include <QQuickView>
 #include <QtQuickControls2/QQuickStyle>
+
 #include "backend.h"
 
 
@@ -16,6 +17,8 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     Backend backend;
+
+    // Tmp100Timer timer;
 
     QQmlApplicationEngine* e = new QQmlApplicationEngine();
     e->rootContext()->setContextProperty("backend", &backend);
@@ -31,6 +34,9 @@ int main(int argc, char *argv[])
     QObject * topLevel = e->rootObjects().value(0);
     QQuickWindow *window = qobject_cast<QQuickWindow*>(topLevel);
     QObject::connect(&backend, SIGNAL(currentTemperature(QVariant)), window, SLOT(temperatureChange(QVariant)));
+
+
+
 
     return app.exec();
 }

@@ -9,32 +9,32 @@ using namespace std;
 PWM::PWM()
 {
 	_speed = "0";
-	_pin_number = "2";
-	SLOTH_WRITE.open(SLOT_PATH.c_str());
-	SLOTH_WRITE << "am33xx_pwm" << flush;
-	SLOTH_WRITE.close();
+    _pin_number = "2";
+
+    SLOT_WRITE.open("/sys/devices/bone_capemgr.8/slots/");
+    SLOT_WRITE << "am33xx_pwm" << flush;
 	usleep(100);
-	SLOTH_WRITE.open(SLOT_PATH.c_str());
-	SLOTH_WRITE << "bone_pwm_P9_22" << flush;
-	SLOTH_WRITE.close();
-	polarity.open((PWM_PATH + "/polarity").c_str());
-	polarity << "0" << flush;
+    SLOT_WRITE << "bone_pwm_P8_19" << flush;
+    SLOT_WRITE.close();
+
+    polarity.open("/sys/devices/ocp.2/pwm_test_P8_19.14/polarity");
+    polarity << 0 << flush;
 	polarity.close();
-	period.open((PWM_PATH + "/period").c_str());
-	period << "20000000" << flush;
+    period.open("/sys/devices/ocp.2/pwm_test_P8_19.14/period");
+    period << 20000000 << flush;
 	period.close();
-	duty.open((PWM_PATH + "/duty").c_str());
-	duty << "0" << flush;
+    duty.open("/sys/devices/ocp.2/pwm_test_P8_19.14/duty");
+    duty << 0 << flush;
 	duty.close();
-	run.open((PWM_PATH + "/run").c_str());
-	run << "1" << flush;
+    run.open("/sys/devices/ocp.2/pwm_test_P8_19.14/run");
+    run << 1 << flush;
 	run.close();
 }
 
-void PWM::set_speed(string speed) 
+void PWM::set_speed(string speed)
 {
-	this->_speed = speed;
-	this->duty.open((PWM_PATH + "/duty").c_str());
+    // this->_speed = speed;
+    this->duty.open("/sys/devices/ocp.2/pwm_test_P8_19.14/duty");
 	this->duty << speed.c_str() << flush;
 	this->duty.close();
 }

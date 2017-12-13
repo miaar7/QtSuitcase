@@ -15,7 +15,7 @@ public:
 	GPIO();
 	GPIO(string pin_num, string dir);
 	~GPIO();
-	void set(void);
+    void set(void);
 	void reset(void);
 	int get(void);
 	
