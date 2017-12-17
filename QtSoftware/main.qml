@@ -12,11 +12,18 @@ ApplicationWindow {
     //Material.theme: Material.Dark
     //Material.accent: Material.color(Material.Blue)
     signal tempChange(real temp)
+    signal modeChange(string gpio)
+    signal setpointChange(real value)
 
     function temperatureChange(value)
         {
             applicationWindow.tempChange(value)
         }
+
+    function gpio_State(s_gpio)
+    {
+        applicationWindow.modeChange(s_gpio)
+    }
 
     SwipeView {
         id: swipeView
@@ -28,9 +35,15 @@ ApplicationWindow {
 
         Temp {
 
+            onDialChange: {
+                applicationWindow.setpointChange(value)
+            }
+
         }
 
         Trend {
+
+
 
         }
         Man {
@@ -63,4 +76,6 @@ ApplicationWindow {
     SideBar {
         id: sideBar
     }
+
+
 }

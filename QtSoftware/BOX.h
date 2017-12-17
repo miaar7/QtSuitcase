@@ -5,6 +5,7 @@
 #include<fstream>
 #include<unistd.h>
 #include<string>
+
 #include <QString>
 #include <QDebug>
 #include "GPIO.h"
@@ -31,8 +32,9 @@ using namespace std;
       void reset_lamp1(void);
       void reset_lamp2(void);
       void reset_lamp3(void);
-      void set_fan_speed(string speed);
+      void set_fan_speed(void);
       void stop_fan(void);
+      QString get_gpioState();
       float temp(void);
 
  public slots:
@@ -43,7 +45,8 @@ using namespace std;
       GPIO* lamp_1;
       GPIO* lamp_2;
       GPIO* lamp_3;
-      PWM* fan;
+      GPIO* fan;
+      // PWM* fan;
       QThread* thread;
       TempThread* tempThread;
 

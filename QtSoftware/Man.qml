@@ -17,8 +17,16 @@ ManForm {
         target:applicationWindow
 
         onTempChange: {
-        console.log("Temp update:" + temp.toString())
+        // console.log("Temp update:" + temp.toString())
         pBarPV.value = temp
+        }
+
+        onModeChange: {
+            swLamp1.checked =  parseInt(gpio.charAt(0))
+            swLamp2.checked =  parseInt(gpio.charAt(1))
+            swLamp3.checked =  parseInt(gpio.charAt(2))
+            fanSlider.value = parseInt(gpio.charAt(3))
+
         }
      }
 

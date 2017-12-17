@@ -98,7 +98,7 @@ PageBackground {
         height: 32
         padding: 0
         rotation: -90
-        value: 0.5
+        value: 0
     }
 
     Label {

@@ -17,7 +17,8 @@ SOURCES += main.cpp \
     BOX.cpp \
     GPIO.cpp \
     PWM.cpp \
-    tempthread.cpp
+    tempthread.cpp \
+    controlthread.cpp
 
 RESOURCES += qml.qrc
 
@@ -37,6 +38,7 @@ HEADERS += \
     BOX.h \
     GPIO.h \
     PWM.h \
-    tempthread.h
+    tempthread.h \
+    controlthread.h
 
 DISTFILES +=

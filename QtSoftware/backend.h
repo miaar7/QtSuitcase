@@ -6,6 +6,7 @@
 #include <QString>
 #include <QDebug>
 #include "BOX.h"
+#include "controlthread.h"
 
 /*
 extern "C" {
@@ -30,8 +31,10 @@ public:
     Q_INVOKABLE void setLamp3(bool);
     Q_INVOKABLE void setMode(bool);
 
+
 signals:
     void currentTemperature(QVariant value);
+    void gpioState(QVariant state);
 
 public slots:
     void Tmp100Slot(float);
@@ -39,6 +42,9 @@ public slots:
 private:
     QTimer *timer;
     BOX *box;
+
+    QThread* thread;
+    ControlThread* controlThread;
 
 };
 

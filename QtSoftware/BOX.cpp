@@ -15,7 +15,8 @@ using namespace std;
       lamp_1 = new GPIO("7");
       lamp_2 = new GPIO("14");
       lamp_3 = new GPIO("15");
-      fan = new PWM();
+      fan    = new GPIO("30");
+      // fan = new PWM();
       thread  = new QThread();
       tempThread = new TempThread();
       tempThread->moveToThread(thread);
@@ -28,13 +29,16 @@ using namespace std;
       connect(tempThread,SIGNAL(tempChange(float)),this,SLOT(slotTempChange(float)));
       thread->start();
 
+
+
       // tmp = new TMP100();
 
       //Initialize the box
       lamp_1->reset();
       lamp_2->reset();
       lamp_3->reset();
-      fan->stop();
+      fan -> reset();
+      // fan->stop();
     //  rasp->reset();
 }
 void BOX::set_lamp1(void) {
@@ -55,15 +59,28 @@ void BOX::reset_lamp2(void) {
 void BOX::reset_lamp3(void) {
   this->lamp_3->reset();
 }
-void BOX::set_fan_speed(string speed)
+void BOX::set_fan_speed(void)
 {
-  this->fan->set_speed(speed);
+   this->fan->set();
+    // qDebug() << "Start fan" ;
+    // this->fan->set_speed(speed);
 
+}
+
+QString BOX::get_gpioState(){
+    QString state;
+    state.append(QString::number(lamp_1->get()));
+    state.append(QString::number(lamp_2->get()));
+    state.append(QString::number(lamp_3->get()));
+    state.append(QString::number(fan->get()));
+    return state;
 }
 
 void BOX::stop_fan(void)
 {
-  this->fan->stop();
+  // this->fan->stop();
+    this->fan->reset();
+   // qDebug() << "Stop fan" ;
 }
 
 float BOX::temp(void)

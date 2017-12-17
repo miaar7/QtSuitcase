@@ -17,7 +17,7 @@ PageBackground {
         scale: 1
         leftPadding: 8
         rightPadding: 8
-        checked: true
+        checked: false
     }
 
     Label {

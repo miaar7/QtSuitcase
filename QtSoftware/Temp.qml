@@ -3,6 +3,9 @@ import QtQuick.Controls 2.0
 //import QtQuick.Controls.Material 2.0
 
 TempForm {
+    id: tempForm
+
+    signal dialChange(real value)
 
             Connections {
                 target:applicationWindow
@@ -16,7 +19,11 @@ TempForm {
 
             dial
             {
-                onValueChanged:{backend.setSetpoint(dial.value)}
+                onValueChanged:{
+                    backend.setSetpoint(dial.value)
+                    tempForm.dialChange(dial.value)
+                }
+                //onPositionChanged:{backend.setSetpoint(dial.value)}
 
             }
 

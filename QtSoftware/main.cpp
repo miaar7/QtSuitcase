@@ -34,6 +34,8 @@ int main(int argc, char *argv[])
     QObject * topLevel = e->rootObjects().value(0);
     QQuickWindow *window = qobject_cast<QQuickWindow*>(topLevel);
     QObject::connect(&backend, SIGNAL(currentTemperature(QVariant)), window, SLOT(temperatureChange(QVariant)));
+    QObject::connect(&backend, SIGNAL(gpioState(QVariant)), window, SLOT(gpio_State(QVariant)));
+
 
 
 

@@ -78,7 +78,6 @@ void TempThread::process(){
             // printf("Temperature in Fahrenheit is : %.2f F \n", fTemp);
             emit tempChange(cTemp);
         }
-        sleep(2);
     }
 
 }
