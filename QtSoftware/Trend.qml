@@ -18,7 +18,7 @@ TrendForm {
 
         onTempChange: {
             if(temp > axisYstyle.max){
-                axisYstyle.max = temp+1
+                axisYstyle.max = temp+5
             }
 
             if(temp < axisYstyle.min){

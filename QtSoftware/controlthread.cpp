@@ -119,8 +119,8 @@ void ControlThread::setPoint(float temp)
     setpoint.SP  = temp;
 
     setpoint.ONE_LAMP = setpoint.SP -0.1;
-    setpoint.TWO_LAMP = setpoint.ONE_LAMP - 1;
-    setpoint.THREE_LAMP = setpoint.TWO_LAMP - 1;
+    setpoint.TWO_LAMP = setpoint.ONE_LAMP - 0.2;
+    setpoint.THREE_LAMP = setpoint.TWO_LAMP - 0.5;
 
     setpoint.MAX = setpoint.SP +0.1;
 }

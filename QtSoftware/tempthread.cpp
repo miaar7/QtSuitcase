@@ -10,24 +10,25 @@ TempThread::~TempThread(){
 }
 
 void TempThread::process(){
+    // Create I2C bus
+    int file;
+    int status;
+    char *bus = "/dev/i2c-2";
+    if ((file = open(bus, O_RDWR)) < 0)
+    {
+        // printf("Failed to open the bus. \n");
+        qDebug() << "Failed to open the bus." ;
+
+    }
+
+    // Get I2C device, TMP100 I2C address is 0x4F(79)
+    status = ioctl(file, I2C_SLAVE, 0x48);
+    if(status < 0){
+        qDebug() << "Error ioctl";
+
+    }
 
     while(1){
-        // Create I2C bus
-        int file;
-        int status;
-        char *bus = "/dev/i2c-2";
-        if ((file = open(bus, O_RDWR)) < 0)
-        {
-            // printf("Failed to open the bus. \n");
-            qDebug() << "Failed to open the bus." ;
-
-        }
-        // Get I2C device, TMP100 I2C address is 0x4F(79)
-        status = ioctl(file, I2C_SLAVE, 0x48);
-        if(status < 0){
-            qDebug() << "Error ioctl";
-
-        }
 
         // Select configuration register(0x01)
         // Continuous conversion, comparator mode, 12-bit resolution(0x60)
