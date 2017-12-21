@@ -1,13 +1,8 @@
 #include "tempthread.h"
 
-TempThread::TempThread()
-{
+TempThread::TempThread(){}
 
-}
-
-TempThread::~TempThread(){
-
-}
+TempThread::~TempThread(){}
 
 void TempThread::process(){
     // Create I2C bus
@@ -16,9 +11,7 @@ void TempThread::process(){
     char *bus = "/dev/i2c-2";
     if ((file = open(bus, O_RDWR)) < 0)
     {
-        // printf("Failed to open the bus. \n");
         qDebug() << "Failed to open the bus." ;
-
     }
 
     // Get I2C device, TMP100 I2C address is 0x4F(79)
@@ -27,7 +20,6 @@ void TempThread::process(){
         qDebug() << "Error ioctl";
 
     }
-
     while(1){
 
         // Select configuration register(0x01)
@@ -39,13 +31,10 @@ void TempThread::process(){
 
         if(status < 0){
             qDebug() << "Error writing i2c config";
-
-
         }
         sleep(1);
 
         // Read 2 bytes of data from register(0x00)
-        // temp msb, temp lsb
         char reg[1] = {0x00};
         status =  write(file, reg, 1);
         if(status < 0){
@@ -57,7 +46,6 @@ void TempThread::process(){
         status = read(file, data, 2);
         if(status != 2)
         {
-            // printf("Error : Input/Output error \n");
             qDebug() << "Input/Output error " << status;
         }
         else
@@ -68,15 +56,9 @@ void TempThread::process(){
             {
                 temp -= 4096;
             }
-            float cTemp = temp * 0.0625;
-            float fTemp = cTemp * 1.8 + 32;
+            float cTemp = temp * 0.0625; // Celsius
+            float fTemp = cTemp * 1.8 + 32; // Fahrenheit
 
-            // Output data to screen
-
-            //qDebug() << "Temp " << cTemp << "C" ;
-            // printf("okay");
-            // printf("Temperature in Celsius is : %.2f C \n", cTemp);
-            // printf("Temperature in Fahrenheit is : %.2f F \n", fTemp);
             emit tempChange(cTemp);
         }
     }

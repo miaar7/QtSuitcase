@@ -13,18 +13,14 @@ int main(int argc, char *argv[])
     qputenv("QT_IM_MODULE", QByteArray("qtvirtualkeyboard"));
 
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-    //QGuiApplication app(argc, argv);
     QApplication app(argc, argv);
 
     Backend backend;
-
-    // Tmp100Timer timer;
 
     QQmlApplicationEngine* e = new QQmlApplicationEngine();
     e->rootContext()->setContextProperty("backend", &backend);
 
     QQuickStyle::setStyle("Material");
-
 
     e->load(QUrl(QLatin1String("qrc:/main.qml")));
     if (e->rootObjects().isEmpty())
@@ -35,10 +31,5 @@ int main(int argc, char *argv[])
     QQuickWindow *window = qobject_cast<QQuickWindow*>(topLevel);
     QObject::connect(&backend, SIGNAL(currentTemperature(QVariant)), window, SLOT(temperatureChange(QVariant)));
     QObject::connect(&backend, SIGNAL(gpioState(QVariant)), window, SLOT(gpio_State(QVariant)));
-
-
-
-
-
     return app.exec();
 }

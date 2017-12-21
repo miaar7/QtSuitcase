@@ -35,7 +35,6 @@ using namespace std;
       void set_fan_speed(void);
       void stop_fan(void);
       QString get_gpioState();
-      float temp(void);
 
  public slots:
 

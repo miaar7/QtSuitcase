@@ -1,28 +1,18 @@
 #include "controlthread.h"
 
 
-ControlThread::ControlThread(BOX* box):box(box)
-{
+ControlThread::ControlThread(BOX* box):box(box){}
 
-
-
-}
-
-ControlThread::~ControlThread(){
-
-}
+ControlThread::~ControlThread(){}
 
 void ControlThread::process(){
-
 
     State state = AT_SP;
 
     while(1)
     {
-
         if(mode)
         {
-
             switch(state)
             {
 
@@ -93,21 +83,12 @@ void ControlThread::process(){
                         state = COLDER;
                 break;
             }
-
             // qDebug() << "automatic" << temp << " sp - " << AT_SP;
-
-
-
-
         }
         else
         {
            //qDebug() << "manual";
         }
-
-
-
-
     sleep(1);
     }
 
@@ -116,8 +97,8 @@ void ControlThread::process(){
 
 void ControlThread::setPoint(float temp)
 {
+    // Put in thresholds for turning on lamps
     setpoint.SP  = temp;
-
     setpoint.ONE_LAMP = setpoint.SP -0.1;
     setpoint.TWO_LAMP = setpoint.ONE_LAMP - 0.2;
     setpoint.THREE_LAMP = setpoint.TWO_LAMP - 0.5;

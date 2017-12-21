@@ -29,17 +29,11 @@ using namespace std;
       connect(tempThread,SIGNAL(tempChange(float)),this,SLOT(slotTempChange(float)));
       thread->start();
 
-
-
-      // tmp = new TMP100();
-
       //Initialize the box
       lamp_1->reset();
       lamp_2->reset();
       lamp_3->reset();
       fan -> reset();
-      // fan->stop();
-    //  rasp->reset();
 }
 void BOX::set_lamp1(void) {
  this->lamp_1->set();
@@ -62,9 +56,6 @@ void BOX::reset_lamp3(void) {
 void BOX::set_fan_speed(void)
 {
    this->fan->set();
-    // qDebug() << "Start fan" ;
-    // this->fan->set_speed(speed);
-
 }
 
 QString BOX::get_gpioState(){
@@ -78,14 +69,8 @@ QString BOX::get_gpioState(){
 
 void BOX::stop_fan(void)
 {
-  // this->fan->stop();
     this->fan->reset();
    // qDebug() << "Stop fan" ;
-}
-
-float BOX::temp(void)
-{
-
 }
 
 void BOX::slotTempChange(float temp){
