@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Suitcase</title>
+	
+	
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	
+
+    <script src = "/socket.io/socket.io.js" > </script>
+    <script>
+        var socket = io.connect();
+        
+        function updateValue(id, value)
+        {
+          //window.alert(id + ' : ' + value);
+          //socket.emit('GUIEvent', '{"pin":"P9_14", "value":' + value / 100 + '}');
+          socket.emit('GUIEvent', '{"handle": "'+id+'", "value": "'+value+'"}' );
+        }
+    </script>
+	
+    <script>
+    $( function()
+    {
+        //initialize jquery elements
+        $( "#slider1" ).slider();                //with #, we are selecting by id
+        $( ":checkbox" ).checkboxradio();        //with : we are selecting by type
+        $( ":radio" ).checkboxradio();           //with : we are selecting by type
+        $( "#progressbar" ).progressbar( {value: 37 });
+        
+        
+        $( ":checkbox" ).change(function()
+        {
+            updateValue(event.target.name, event.target.checked);
+        });
+        
+        $( ":radio" ).change(function()
+        {
+            updateValue(event.target.id, event.target.checked);
+        });
+        
+        $("#slider1").mouseup(function()
+        {
+            updateValue("pb_fan", $("#slider1").slider("value"));
+        });
+        
+    });
+    
+    </script>
+
+	
+</head>
+<body>
+
+    <table width="30%" style="min-width:500px">
+    <tr>
+    <td>
+
+    <fieldset>
+        <legend>Mode</legend>
+        <label for="radio-1">Manual</label>
+        <input type="radio" name="radio-1" id="radio-1" checked="checked">
+    
+        <label for="radio-2">Automatic</label>
+        <input type="radio" name="radio-1" id="radio-2">
+    </fieldset>
+ 
+    <br><br>
+
+    Set fan speed <br>
+    <div id="slider1"></div>
+ 
+    <br><br>
+ 
+    <fieldset>
+        <legend>Lamps on/off</legend>
+        <label for="cb_lamp1">lamp 1</label>
+        <input type="checkbox" name="cb_lamp1" id="cb_lamp1">
+    
+        <label for="cb_lamp2">lamp 2</label>
+        <input type="checkbox" name="cb_lamp2" id="cb_lamp2">
+    
+        <label for="cb_lamp3">lamp 3</label>
+        <input type="checkbox" name="cb_lamp3" id="cb_lamp3">
+    </fieldset>
+
+    <br><br>
+    
+    Temperature
+    <div id="progressbar"></div>
+
+
+    <td>
+    <tr>
+    <table>
+
+</body>
+</html>
+
